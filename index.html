@@ -139,7 +139,7 @@
       본 기업은 한국정보통신기술협회(TTA) 컨소시엄이「2026 글로벌 SaaS 마켓플레이스 지원사업」을 수행할 경우 기업지원 프로그램에 참여할 의향이 있음을 알려드립니다.
     </p>
     <div class="sig-row">
-      2026년 02월 02일<br><br>
+      <span id="vDate"></span><br><br>
       작성자 : <span id="vSig"></span>
     </div>
     <div style="text-align:center; margin-top:60px; font-weight:bold; font-size:20px;">한국정보통신기술협회 귀중</div>
@@ -195,6 +195,13 @@
     document.getElementById('vComp').innerText = comp;
     document.getElementById('vSig').innerText = name;
     document.getElementById('vSvc').innerText = Array.from(document.querySelectorAll('input[name="svc"]:checked')).map(e => e.value).join(", ") || "선택 없음";
+
+    // [날짜 자동 생성 로직]
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    document.getElementById('vDate').innerText = `${year}년 ${month}월 ${day}일`;
     
     document.getElementById('overlay').style.display = 'block';
     document.getElementById('modal').style.display = 'block';
